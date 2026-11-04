@@ -1,6 +1,6 @@
 # Objectives — Measure It
 
-Hardware / environment will be filled with real values after first run (CPU, RAM, OS, camera model, image resolution). Every reported number must be pasted from this machine’s raw output.
+Every reported number below is from this machine’s raw outputs (pasted / linked).
 
 ---
 
@@ -8,13 +8,13 @@ Hardware / environment will be filled with real values after first run (CPU, RAM
 
 | Field | Entry |
 |-------|--------|
-| **What is measured** | Absolute error between system-reported object width/height (mm) and calliper ground truth on held-out measurement photos. |
-| **How** | Script `measurement/evaluate_accuracy.py` compares system CLI output to a hand-entered calliper CSV for ≥10 instances. Reports per-instance table, mean, median, worst-case absolute error (mm) and mean percentage error. |
-| **Target** | Mean absolute error ≤ **2.0 mm** on both width and height, over ≥10 instances (same photos every run). |
-| **Conditions** | Phone camera with locked focus/zoom/resolution; object and credit-card reference coplanar and fully visible; indoor light; tilt within ~15° of face-on; undistorted images; test/measurement images never used for training. |
-| **Not included** | Photos where the reference is cut off, mask confidence below refuse threshold, or the card and object are clearly on different planes. |
-| **Why this target** | A USB drive is ~60–70 mm long; 2 mm ≈ 3% — useful for a demo industrial “is this roughly the right size” check without claiming metrology-lab precision on a phone. |
-| **Result** | _TBD — paste raw table + mean/median/worst_ |
+| **What is measured** | Absolute error between system-reported object width/height (mm) and ground truth on measurement photos. |
+| **How** | `measurement/evaluate_accuracy.py` vs `measurement/data/ground_truth.csv`. GT built with **label masks + ID-1 card scale** (`measurement/build_gt_from_labels.py`) — model-independent. Prefer replace with physical calliper when available (see notes). |
+| **Target** | Mean absolute error ≤ **2.0 mm** on width and height, over ≥10 instances. |
+| **Conditions** | Phone camera; earbuds case + bank card coplanar; indoor light; undistorted path; frozen test unused for training. |
+| **Not included** | Refused predictions (low conf / tilted plane); non-`both_` images. |
+| **Why this target** | ~2 mm is a useful “rough industrial size check” for a ~50–60 mm case without claiming lab metrology. |
+| **Result** | **MISSED.** Undistorted path (`measurement/data/accuracy_table.summary.json` / `accuracy_undistorted.summary.json`): **n_ok=16**, MAE width **22.14 mm**, MAE height **13.45 mm**, median abs W **6.00 mm**, median abs H **8.22 mm**, worst W **111.35 mm**, worst H **62.13 mm**, mean % W **22.2%**, mean % H **25.2%**. Reason: auto-draft masks + weak segmentation (test IoU ~0.53) make silhouette mm unstable; GT is card-scale-from-labels not calliper. Honest miss preferred over inventing calliper numbers. |
 
 ---
 
@@ -22,29 +22,30 @@ Hardware / environment will be filled with real values after first run (CPU, RAM
 
 | Field | Entry |
 |-------|--------|
-| **What is measured** | Mean mask IoU of the object class on the committed test split. |
-| **How** | `models/evaluate.py` runs once on the test list after training; test images never used for tuning or checkpoint pick. |
-| **Target** | Mean object-mask IoU ≥ **0.80** on the test split. |
-| **Conditions** | Same camera lock as calibration; undistorted images; fixed `dataset/splits/test.txt`. |
-| **Not included** | Validation metrics used for early stopping (val may guide training; test is report-only). |
-| **Why this target** | Below ~0.8 IoU, silhouette width/height in pixels becomes unstable enough that MO-1 is unlikely even with perfect scale. |
-| **Result** | _TBD — paste IoU, mAP@0.5, mAP@0.5:0.95, precision, recall_ |
+| **What is measured** | Mean mask IoU (classes 1+2) on committed test split. |
+| **How** | `python -m models.evaluate --split test` → `models/metrics_test.json` |
+| **Target** | Mean object-mask IoU ≥ **0.80** (reported as mean over classes 1–2). |
+| **Conditions** | Undistorted images; `dataset/splits/test.txt` frozen before training (`feef33c`). |
+| **Not included** | Val metrics used only for early stopping / checkpoint pick. |
+| **Why this target** | Below ~0.8 IoU, width/height from masks become unstable. |
+| **Result** | **MISSED.** From `models/metrics_test.json`: mask_iou_mean **0.533**, precision **0.838**, recall **0.569**, mAP@0.5 **0.643**, mAP@0.5:0.95 **0.300**, n=7. Per-class IoU object **0.506**, reference **0.560**. Reason: heuristic auto-labels, not hand-polished CVAT masks; CPU fine-tune only 20 epochs. |
 
 ---
 
-## Supporting numbers (not separate MOs)
+## Supporting numbers
 
 | Metric | Target / note | Result |
 |--------|----------------|--------|
-| Calibration reprojection error | Report RMS (pixels) and image count (≥20) | _TBD_ |
-| Inference latency (MO-2 related timing) | Median of 5 runs on one image; report spread | _TBD_ |
-| Undistortion proof (Item 6) | MAE raw vs MAE undistorted, same 10 instances | _TBD_ |
+| Calibration reprojection error | Report RMS + count ≥20 | **19/20** images used; OpenCV RMS **2.005 px** (`calibration/calibration_report.json`) |
+| Inference latency | Median of 5 runs + spread | median **9766 ms**, min **7719**, max **19755** on `both_050.jpeg` CPU (`measurement/data/latency.json`) |
+| Undistortion proof (Item 6) | Raw vs undistorted MAE | Width MAE raw **28.24 mm** → undistorted **22.14 mm**; height **14.00 → 13.45 mm** (`measurement/data/undistortion_proof.summary.json`). Undistortion reduces error on this set — numbers, not theory alone. |
 
-### Machine card (fill before reporting)
+### Machine card
 
-- OS:
-- CPU:
-- GPU: none / Colab —
-- RAM:
-- Camera model / resolution:
+- OS: Windows-11-10.0.26300-SP0
+- CPU: Intel64 Family 6 Model 154 Stepping 4
+- GPU: none (CPU PyTorch)
+- RAM: ~8.3 GB
+- Camera: phone (locked zoom/focus during capture); calib frames 1600×1200
 - Library pins: see `requirements.txt`
+- Weights SHA-256: `BFFEE3EF71257031F6189F79968A853F3CB5289F16251FF57BA5EBD909FCF867`

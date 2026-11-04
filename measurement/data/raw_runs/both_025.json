@@ -1,0 +1,51 @@
+{
+  "image": "C:\\Users\\PMLS\\Desktop\\Asssistement\\dataset\\images\\raw\\both_025.jpeg",
+  "undistorted": true,
+  "elapsed_ms": 1437.1495000013965,
+  "object_area_px": 60042,
+  "reference_area_px": 537889,
+  "object_confidence": 0.841693103313446,
+  "reference_confidence": 0.8785985708236694,
+  "status": "ok",
+  "width_mm": 26.59,
+  "height_mm": 12.11,
+  "confidence": 0.8417,
+  "refuse_reason": null,
+  "mm_per_px": 0.07493615129325215,
+  "reference_meta": {
+    "ref_width_px": 1166.0,
+    "ref_height_px": 706.0,
+    "mm_per_px_long": 0.07341337907375643,
+    "mm_per_px_short": 0.07645892351274787,
+    "mm_per_px": 0.07493615129325215,
+    "axis_disagree_pct": 4.064185825441082,
+    "ref_rect": {
+      "center": [
+        658.0,
+        353.0
+      ],
+      "size": [
+        706.0,
+        1166.0
+      ],
+      "angle": -90.0
+    }
+  },
+  "object_meta": {
+    "object_width_px": 354.8724060058594,
+    "object_height_px": 161.6167755126953,
+    "width_mm": 26.59277230625548,
+    "height_mm": 12.110939141346906,
+    "object_rect": {
+      "center": [
+        723.9608764648438,
+        761.651123046875
+      ],
+      "size": [
+        354.8724060058594,
+        161.6167755126953
+      ],
+      "angle": -12.094757080078125
+    }
+  }
+}
