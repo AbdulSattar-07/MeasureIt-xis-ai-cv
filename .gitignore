@@ -1,11 +1,11 @@
-__pycache__/
+﻿__pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
 venv/
 .env
 .DS_Store
-*.pt
+# *.pt  (allow assessment checkpoint; keep other local pts ignored)
 *.pth
 *.onnx
 # Keep calibration images + params (assessment evidence)
@@ -27,3 +27,5 @@ outputs/
 Thumbs.db
 AI_CV_Assessment*.pdf
 outputs/
+
+!models/checkpoints/best.pt
