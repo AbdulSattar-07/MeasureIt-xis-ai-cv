@@ -23,7 +23,7 @@ def collect_object_image_points(
     corners_x: int,
     corners_y: int,
     square_mm: float,
-) -> tuple[list[np.ndarray], list[np.ndarray], tuple[int, int] | None]:
+) -> tuple[list[np.ndarray], list[np.ndarray], tuple[int, int] | None, list[str]]:
     objp = np.zeros((corners_y * corners_x, 3), np.float32)
     objp[:, :2] = np.mgrid[0:corners_x, 0:corners_y].T.reshape(-1, 2)
     objp *= square_mm
@@ -53,7 +53,7 @@ def collect_object_image_points(
         used.append(path.name)
         print(f"ok: {path.name}")
 
-    return objpoints, imgpoints, image_size, used  # type: ignore[return-value]
+    return objpoints, imgpoints, image_size, used
 
 
 def mean_reprojection_error(
