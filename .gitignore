@@ -8,18 +8,22 @@ venv/
 *.pt
 *.pth
 *.onnx
-calibration/images/*
-!calibration/images/.gitkeep
+# Keep calibration images + params (assessment evidence)
+!calibration/images/
+!calibration/images/**
+!calibration/camera_params.npz
 dataset/images/raw/*
 dataset/images/undistorted/*
 !dataset/images/raw/.gitkeep
 !dataset/images/undistorted/.gitkeep
-dataset/labels/*
-!dataset/labels/.gitkeep
-!dataset/labels/README.md
+# Keep generated draft labels for reproducibility; large previews stay out
+!dataset/labels/
+!dataset/labels/**
 .ipynb_checkpoints/
 runs/
 outputs/
 *.npz
+!calibration/camera_params.npz
 Thumbs.db
 AI_CV_Assessment*.pdf
+outputs/

@@ -34,6 +34,12 @@ def collect_object_image_points(
     image_size: tuple[int, int] | None = None
     used: list[str] = []
 
+    flags = (
+        cv2.CALIB_CB_ADAPTIVE_THRESH
+        + cv2.CALIB_CB_NORMALIZE_IMAGE
+        + cv2.CALIB_CB_FILTER_QUADS
+    )
+
     for path in image_paths:
         img = cv2.imread(str(path))
         if img is None:
@@ -41,13 +47,31 @@ def collect_object_image_points(
             continue
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         image_size = (gray.shape[1], gray.shape[0])
-        found, corners = cv2.findChessboardCorners(
-            gray, (corners_x, corners_y), None
-        )
+        h = gray.shape[0]
+        # Prefer screen region (drop laptop keyboard), also try full frame
+        rois = [gray[: int(h * 0.82)], gray, cv2.equalizeHist(gray[: int(h * 0.82)])]
+        found = False
+        corners = None
+        for roi in rois:
+            found, corners = cv2.findChessboardCorners(
+                roi, (corners_x, corners_y), flags
+            )
+            if found:
+                break
+            if hasattr(cv2, "findChessboardCornersSB"):
+                found, corners = cv2.findChessboardCornersSB(
+                    roi, (corners_x, corners_y)
+                )
+                if found:
+                    break
         if not found:
             print(f"skip no corners: {path.name}")
             continue
-        corners = cv2.cornerSubPix(gray, corners, (11, 11), (-1, -1), criteria)
+        # cornerSubPix needs same-sized source as detection; use full gray when possible
+        src = gray
+        if corners is not None and corners[:, 0, 1].max() < h * 0.82:
+            src = gray
+        corners = cv2.cornerSubPix(src, corners, (11, 11), (-1, -1), criteria)
         objpoints.append(objp.copy())
         imgpoints.append(corners)
         used.append(path.name)
