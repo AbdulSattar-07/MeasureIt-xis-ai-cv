@@ -1,0 +1,63 @@
+{
+  "num_images_on_disk": 20,
+  "num_images_used": 19,
+  "images_used": [
+    "calib_01.jpeg",
+    "calib_03.jpeg",
+    "calib_04.jpeg",
+    "calib_05.jpeg",
+    "calib_06.jpeg",
+    "calib_07.jpeg",
+    "calib_08.jpeg",
+    "calib_09.jpeg",
+    "calib_10.jpeg",
+    "calib_11.jpeg",
+    "calib_12.jpeg",
+    "calib_13.jpeg",
+    "calib_14.jpeg",
+    "calib_15.jpeg",
+    "calib_16.jpeg",
+    "calib_17.jpeg",
+    "calib_18.jpeg",
+    "calib_19.jpeg",
+    "calib_20.jpeg"
+  ],
+  "image_size_wh": [
+    1200,
+    1600
+  ],
+  "opencv_rms": 2.0049150400390183,
+  "mean_reprojection_error_px": 2.004911289949895,
+  "camera_matrix": [
+    [
+      1725.1222555644426,
+      0.0,
+      821.9942889843452
+    ],
+    [
+      0.0,
+      1321.4570297535595,
+      597.1753224159575
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "dist_coeffs": [
+    0.4334719615788188,
+    -3.624170971904777,
+    0.011653609465126639,
+    0.005152675731529656,
+    9.089170155416568
+  ],
+  "params_file": "camera_params.npz",
+  "board": {
+    "board_type": "checkerboard",
+    "inner_corners_x": 9,
+    "inner_corners_y": 6,
+    "square_size_mm": 24.5,
+    "notes": "Estimated from on-screen board + UBL card (ID-1 85.6x53.98 mm). source=WhatsApp Image 2026-11-04 at 10.48.44 PM.jpeg method=visual_span_prior long=24.457 short=24.536."
+  }
+}
