@@ -40,11 +40,14 @@ def build_model(num_classes: int, pretrained: bool) -> nn.Module:
     weights = (
         DeepLabV3_MobileNet_V3_Large_Weights.DEFAULT if pretrained else None
     )
-    model = deeplabv3_mobilenet_v3_large(weights=weights)
+    # Keep aux head so train/eval checkpoints always match
+    model = deeplabv3_mobilenet_v3_large(weights=weights, aux_loss=True)
     # Replace classifier head for our class count
     model.classifier[4] = nn.Conv2d(256, num_classes, kernel_size=1)
     if model.aux_classifier is not None:
-        model.aux_classifier[4] = nn.Conv2d(256, num_classes, kernel_size=1)
+        # MobileNet aux FCN head uses fewer channels than ResNet (often 10, not 256)
+        aux_in = model.aux_classifier[4].in_channels
+        model.aux_classifier[4] = nn.Conv2d(aux_in, num_classes, kernel_size=1)
     return model
 
 
@@ -96,6 +99,7 @@ def main() -> None:
         batch_size=int(cfg["batch_size"]),
         shuffle=True,
         num_workers=int(cfg["num_workers"]),
+        drop_last=True,  # BatchNorm in DeepLab needs batch>1
     )
     val_loader = DataLoader(
         val_ds,

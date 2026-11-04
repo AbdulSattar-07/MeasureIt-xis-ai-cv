@@ -17,7 +17,8 @@ Not Ultralytics YOLO. Not Roboflow. Chosen for a clear segmentation API, lighter
 - GPU: none on the assessment laptop (use Colab for training if needed)
 - RAM:
 - Camera model / locked resolution:
-- Weights SHA-256: _add after training_ (`CertUtil -hashfile models/checkpoints/best.pt SHA256` on Windows)
+- Weights: models/checkpoints/best.pt  
+- Weights SHA-256: BFFEE3EF71257031F6189F79968A853F3CB5289F16251FF57BA5EBD909FCF867
 
 ## Dataset summary (fill after capture)
 

@@ -1,6 +1,6 @@
 {
-  "name": "atm_card",
+  "name": "ubl_paypak_debit_card",
   "width_mm": 85.6,
   "height_mm": 53.98,
-  "notes": "Replace with YOUR calliper measurements of the ATM/bank card used in every photo. Do not trust the printed standard alone."
+  "notes": "ID-1 sized UBL PayPak debit card used as coplanar reference. Prefer card back in photos; if front is used, numbers should be blurred before publishing."
 }
