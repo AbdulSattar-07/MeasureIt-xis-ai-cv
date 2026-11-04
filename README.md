@@ -126,3 +126,8 @@ docs/          Plan, Objectives, Definition of Done
 - [ ] Three docs + README
 - [ ] Weights + SHA-256
 - [ ] Loom ≤5 min (K1–K4)
+
+## Repository
+- Public repo: https://github.com/AbdulSattar-07/MeasureIt-xis-ai-cv
+- Working branch: `dev-test01`
+
