@@ -1,0 +1,4 @@
+# Fixed train split — filenames relative to dataset/images/undistorted/
+# COMMITTED BEFORE TRAINING. Do not edit after training starts.
+# Populate after labelling (≥70 images total → ~70% here).
+# Example line: img_001.png
