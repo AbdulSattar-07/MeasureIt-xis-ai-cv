@@ -1,0 +1,51 @@
+{
+  "image": "C:\\Users\\PMLS\\Desktop\\Asssistement\\dataset\\images\\raw\\both_005.jpeg",
+  "undistorted": true,
+  "elapsed_ms": 758.1836000026669,
+  "object_area_px": 196218,
+  "reference_area_px": 143784,
+  "object_confidence": 0.8518016338348389,
+  "reference_confidence": 0.900293231010437,
+  "status": "ok",
+  "width_mm": 77.19,
+  "height_mm": 53.36,
+  "confidence": 0.8518,
+  "refuse_reason": null,
+  "mm_per_px": 0.1675091555489175,
+  "reference_meta": {
+    "ref_width_px": 574.3919677734375,
+    "ref_height_px": 290.2288513183594,
+    "mm_per_px_long": 0.14902715358610996,
+    "mm_per_px_short": 0.185991157511725,
+    "mm_per_px": 0.1675091555489175,
+    "axis_disagree_pct": 22.06685587094402,
+    "ref_rect": {
+      "center": [
+        388.3731689453125,
+        1101.719970703125
+      ],
+      "size": [
+        290.2288513183594,
+        574.3919677734375
+      ],
+      "angle": -84.17927551269531
+    }
+  },
+  "object_meta": {
+    "object_width_px": 460.7832946777344,
+    "object_height_px": 318.52203369140625,
+    "width_mm": 77.18542058251529,
+    "height_mm": 53.35535688737131,
+    "object_rect": {
+      "center": [
+        470.36407470703125,
+        701.53466796875
+      ],
+      "size": [
+        460.7832946777344,
+        318.52203369140625
+      ],
+      "angle": -15.464482307434082
+    }
+  }
+}

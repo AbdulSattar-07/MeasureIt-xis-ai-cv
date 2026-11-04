@@ -14,7 +14,14 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run_measure(image: Path, skip_undistort: bool, out_json: Path) -> dict:
+def run_measure(
+    image: Path,
+    skip_undistort: bool,
+    out_json: Path,
+    min_object_conf: float = 0.30,
+    min_ref_conf: float = 0.30,
+    max_axis_disagree_pct: float = 30.0,
+) -> dict:
     cmd = [
         sys.executable,
         "-m",
@@ -25,6 +32,12 @@ def run_measure(image: Path, skip_undistort: bool, out_json: Path) -> dict:
         str(out_json),
         "--out",
         str(out_json.with_suffix(".png")),
+        "--min-object-conf",
+        str(min_object_conf),
+        "--min-ref-conf",
+        str(min_ref_conf),
+        "--max-axis-disagree-pct",
+        str(max_axis_disagree_pct),
     ]
     if skip_undistort:
         cmd.append("--skip-undistort")

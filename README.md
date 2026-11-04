@@ -3,30 +3,30 @@
 xis.ai AI / Computer Vision technical assessment (v2.0).  
 Branch: **`dev-test01`**
 
-Photograph a USB flash drive (or similar), segment it, and report **width and height in millimetres** using a coplanar credit-card reference.
+Photograph an **earbuds charging case**, segment it, and report **width and height in millimetres** using a coplanar bank-card reference.
 
 ## Why this model
 
 **Torchvision DeepLabV3-MobileNetV3** — semantic segmentation with a pretrained backbone, fine-tuned on **our own** masks.  
 Not Ultralytics YOLO. Not Roboflow. Chosen for a clear segmentation API, lighter CPU/Colab footprint than Mask R-CNN, and straightforward IoU / precision / recall evaluation.
 
-## Hardware (fill after first real run)
+## Hardware
 
-- OS:
-- CPU:
-- GPU: none on the assessment laptop (use Colab for training if needed)
-- RAM:
-- Camera model / locked resolution:
-- Weights: models/checkpoints/best.pt  
-- Weights SHA-256: BFFEE3EF71257031F6189F79968A853F3CB5289F16251FF57BA5EBD909FCF867
+- OS: Windows 11 (10.0.26300)
+- CPU: Intel Family 6 Model 154
+- GPU: none (CPU PyTorch)
+- RAM: ~8.3 GB
+- Camera: phone; calibration images 1600×1200
+- Weights: `models/checkpoints/best.pt`
+- Weights SHA-256: `BFFEE3EF71257031F6189F79968A853F3CB5289F16251FF57BA5EBD909FCF867`
 
-## Dataset summary (fill after capture)
+## Dataset summary
 
-- Object: USB flash drive (see `dataset/OBJECT.md`)
-- Reference: credit card (calliper sizes in `measurement/data/reference.json`)
-- Image count:
-- Split: 70 / 20 / 10 via `dataset/splits/{train,val,test}.txt` (committed before training)
-- Labelling tool: CVAT / Label Studio / …
+- Object: earbuds charging case (see `dataset/OBJECT.md`)
+- Reference: bank card ID-1 (`measurement/data/reference.json`)
+- Image count: 82 undistorted (+ 20 calibration)
+- Split: frozen lists under `dataset/splits/` (committed in `feef33c` before training)
+- Labelling: heuristic auto-masks (`scripts/auto_label_dataset.py`) — not YOLO/Roboflow
 
 ## Setup
 

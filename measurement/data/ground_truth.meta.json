@@ -1,0 +1,9 @@
+{
+  "n": 12,
+  "method": "label_masks_plus_ID1_card",
+  "card_mm": [
+    85.6,
+    53.98
+  ],
+  "warning": "Prefer replacing with physical calliper readings when available."
+}

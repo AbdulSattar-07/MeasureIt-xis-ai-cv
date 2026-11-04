@@ -1,0 +1,8 @@
+{
+  "raw_mae_width_mm": 28.241176470588233,
+  "raw_mae_height_mm": 13.995882352941178,
+  "undistorted_mae_width_mm": 22.135,
+  "undistorted_mae_height_mm": 13.448750000000002,
+  "table": "measurement\\data\\undistortion_proof.csv",
+  "explanation_template": "Undistortion changed width MAE from 28.241176470588233 mm to 22.135 mm and height MAE from 13.995882352941178 mm to 13.448750000000002 mm on the same instances. Interpret using these numbers in Objectives.md."
+}

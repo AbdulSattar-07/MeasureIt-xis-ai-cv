@@ -1,0 +1,13 @@
+{
+  "n_ok": 17,
+  "mae_width_mm": 28.241176470588233,
+  "mae_height_mm": 13.995882352941178,
+  "median_abs_width_mm": 9.0,
+  "median_abs_height_mm": 8.279999999999994,
+  "worst_abs_width_mm": 160.14,
+  "worst_abs_height_mm": 45.71000000000001,
+  "mean_pct_width": 23.893461493276966,
+  "mean_pct_height": 25.278836747880998,
+  "table": "C:\\Users\\PMLS\\Desktop\\Asssistement\\measurement\\data\\accuracy_raw.csv",
+  "skip_undistort": true
+}

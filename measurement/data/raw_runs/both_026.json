@@ -1,0 +1,14 @@
+{
+  "image": "C:\\Users\\PMLS\\Desktop\\Asssistement\\dataset\\images\\raw\\both_026.jpeg",
+  "undistorted": true,
+  "elapsed_ms": 1371.1653999998816,
+  "object_area_px": 268715,
+  "reference_area_px": 411053,
+  "object_confidence": 0.8420222401618958,
+  "reference_confidence": 0.8963718414306641,
+  "status": "refused",
+  "width_mm": null,
+  "height_mm": null,
+  "confidence": null,
+  "refuse_reason": "tilted_or_bad_plane"
+}

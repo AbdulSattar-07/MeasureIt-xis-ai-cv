@@ -1,0 +1,13 @@
+{
+  "n_ok": 16,
+  "mae_width_mm": 22.135,
+  "mae_height_mm": 13.448750000000002,
+  "median_abs_width_mm": 5.995000000000003,
+  "median_abs_height_mm": 8.220000000000002,
+  "worst_abs_width_mm": 111.35000000000001,
+  "worst_abs_height_mm": 62.13000000000001,
+  "mean_pct_width": 22.158722935009287,
+  "mean_pct_height": 25.216750069931052,
+  "table": "measurement\\data\\accuracy_table.csv",
+  "skip_undistort": false
+}
