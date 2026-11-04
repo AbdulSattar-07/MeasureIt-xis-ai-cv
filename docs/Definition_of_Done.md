@@ -18,7 +18,7 @@ Written before coding. Evidence filled at end.
 | ☑ | MO-1 / MO-2 met **or** missed with reason written | Both **missed** with reasons in `docs/Objectives.md` |
 | ☑ | Refuse-to-answer path exists (low confidence / missing ref) | thresholds in CLI; axis-disagree / low-conf refuses |
 | ☑ | Weights SHA-256 in README (or release link) | README + `models/checkpoints/best.pt` |
-| ☐ | Loom ≤5 min answering K1–K4 without notes | Guide: `docs/Loom_Guide.md` — link: _paste Loom URL here_ |
+| ☐ | Loom ≤5 min answering K1–K4 without notes | link: _paste Loom URL here_ |
 | ☑ | Everything not finished is listed below | |
 
 ## Not finished
