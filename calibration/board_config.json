@@ -1,0 +1,7 @@
+{
+  "board_type": "checkerboard",
+  "inner_corners_x": 9,
+  "inner_corners_y": 6,
+  "square_size_mm": 25.0,
+  "notes": "Measure one square with a calliper after printing. Do not trust the PDF scale. Update square_size_mm before calibrating."
+}
