@@ -1,0 +1,3 @@
+# Fixed test split — filenames relative to dataset/images/undistorted/
+# COMMITTED BEFORE TRAINING. Never use for training, tuning, or checkpoint pick.
+# Populate after labelling (~10% of images).
