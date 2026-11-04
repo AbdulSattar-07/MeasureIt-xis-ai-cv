@@ -1,3 +1,10 @@
-# Fixed test split — filenames relative to dataset/images/undistorted/
-# COMMITTED BEFORE TRAINING. Never use for training, tuning, or checkpoint pick.
-# Populate after labelling (~10% of images).
+# Fixed split — filenames relative to dataset/images/undistorted/
+# COMMITTED BEFORE TRAINING. Do not edit the test list after training starts.
+# Never use for training, tuning, or checkpoint pick.
+both_014.png
+both_018.png
+both_029.png
+both_032.png
+both_036.png
+both_004.png
+both_015.png

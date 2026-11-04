@@ -1,3 +1,18 @@
-# Fixed val split — filenames relative to dataset/images/undistorted/
-# COMMITTED BEFORE TRAINING. Do not edit after training starts.
-# Populate after labelling (~20% of images).
+# Fixed split — filenames relative to dataset/images/undistorted/
+# COMMITTED BEFORE TRAINING. Do not edit the test list after training starts.
+both_045.png
+both_042.png
+both_046.png
+both_013.png
+ear_009.png
+both_002.png
+both_039.png
+both_033.png
+both_030.png
+both_028.png
+ear_004.png
+ear_010.png
+both_005.png
+both_056.png
+both_012.png
+ear_003.png

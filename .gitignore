@@ -12,11 +12,11 @@ venv/
 !calibration/images/
 !calibration/images/**
 !calibration/camera_params.npz
-dataset/images/raw/*
-dataset/images/undistorted/*
-!dataset/images/raw/.gitkeep
-!dataset/images/undistorted/.gitkeep
-# Keep generated draft labels for reproducibility; large previews stay out
+# Keep dataset images + labels in repo for assessment reproducibility
+!dataset/images/raw/
+!dataset/images/raw/**
+!dataset/images/undistorted/
+!dataset/images/undistorted/**
 !dataset/labels/
 !dataset/labels/**
 .ipynb_checkpoints/
