@@ -1,6 +1,6 @@
 {
-  "name": "credit_card",
+  "name": "atm_card",
   "width_mm": 85.6,
   "height_mm": 53.98,
-  "notes": "Replace with YOUR calliper measurements of the physical card used in every photo. Do not trust the printed standard alone."
+  "notes": "Replace with YOUR calliper measurements of the ATM/bank card used in every photo. Do not trust the printed standard alone."
 }

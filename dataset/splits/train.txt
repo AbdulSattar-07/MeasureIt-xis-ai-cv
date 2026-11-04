@@ -1,4 +1,57 @@
-# Fixed train split — filenames relative to dataset/images/undistorted/
-# COMMITTED BEFORE TRAINING. Do not edit after training starts.
-# Populate after labelling (≥70 images total → ~70% here).
-# Example line: img_001.png
+# Fixed split — filenames relative to dataset/images/undistorted/
+# COMMITTED BEFORE TRAINING. Do not edit the test list after training starts.
+both_049.png
+both_050.png
+both_054.png
+both_009.png
+both_053.png
+ear_002.png
+both_034.png
+both_016.png
+both_063.png
+both_055.png
+both_069.png
+both_052.png
+both_041.png
+ear_008.png
+both_058.png
+both_024.png
+both_026.png
+both_008.png
+both_062.png
+both_059.png
+both_037.png
+both_019.png
+both_067.png
+both_020.png
+both_021.png
+both_043.png
+both_031.png
+both_064.png
+both_060.png
+both_068.png
+both_044.png
+both_065.png
+both_003.png
+both_017.png
+both_061.png
+both_023.png
+both_040.png
+both_025.png
+both_006.png
+both_007.png
+both_048.png
+ear_005.png
+both_010.png
+both_051.png
+both_022.png
+both_066.png
+both_057.png
+both_011.png
+both_001.png
+ear_006.png
+both_038.png
+ear_007.png
+ear_011.png
+both_027.png
+both_035.png
