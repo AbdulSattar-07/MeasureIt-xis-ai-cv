@@ -1,0 +1,20 @@
+seed: 42
+num_classes: 3  # background, object, reference
+image_size: 512
+batch_size: 2
+epochs: 40
+lr: 0.0001
+weight_decay: 0.0001
+num_workers: 0
+backbone: deeplabv3_mobilenet_v3_large
+pretrained: true
+early_stop_patience: 8
+checkpoint_dir: models/checkpoints
+best_checkpoint: models/checkpoints/best.pt
+metrics_val: models/metrics_val.json
+metrics_test: models/metrics_test.json
+train_list: dataset/splits/train.txt
+val_list: dataset/splits/val.txt
+test_list: dataset/splits/test.txt
+images_dir: dataset/images/undistorted
+labels_dir: dataset/labels
